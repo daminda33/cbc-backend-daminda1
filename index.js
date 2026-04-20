@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import userRouter from "./routers/userRouter.js";
 import mongoose from "mongoose";
@@ -5,6 +7,7 @@ import jwt from "jsonwebtoken";
 import productRouter from "./routers/productRouter.js";
 import cors from "cors"
 import orderRouter from "./routers/orderRouter.js";
+
 
 
 const app = express();
