@@ -39,15 +39,16 @@ app.use(
 )
 
 
-app.listen(5000,()=>{
-    console.log ("server is running");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT,()=>{
+    console.log (`server is running on port ${PORT}`);
 })
 
 app.use("/api/users",userRouter)
 app.use("/api/products",productRouter)
 app.use("/api/orders",orderRouter)
 
-let connectionString = "mongodb+srv://admin:123@cluster0.bskafgy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+let connectionString = process.env.MONGO_URI || "mongodb+srv://admin:123@cluster0.bskafgy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose.connect(connectionString).then(
     ()=>{
