@@ -17,7 +17,7 @@ app.use(
         if (value != null){
         const token = value.replace("Bearer ","")
         jwt.verify(token,
-            "cbc-6503",
+            process.env.JWT_SECRET,
             (err,decoded)=>{
                 if (decoded == null){
                     res.status(403).json({

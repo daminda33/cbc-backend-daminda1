@@ -97,7 +97,7 @@ export function loginUser(req,res){  // user Authentication
                     isBlocked : user.isBlocked,
                     isEmailVerified : user.isEmailVerified,
                     image : user.image
-                },"cbc-6503"
+                },process.env.JWT_SECRET
             )
             res.json({
                 token : token,
